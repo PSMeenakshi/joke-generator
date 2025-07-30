@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+
+ <link rel="stylesheet" type="text/css" href="/styles.css">
+ 
+</head>
+<body>
+  <div class = "container">
+<h1>Welcome to the Joke Generator</h1>
+    <% if (!joke) { %>
+  <form action="/post" method="POST">
+    <label for="name">Enter your name:</label>
+    <input type="text" name="name" required>
+    <input type="submit" value="Submit">
+  </form>
+<% } else { %>
+  <p>Here's your joke, <%= name %>:</p>
+  <p><%= joke %></p>
+
+  <form action="/post" method="POST">
+    <input type="hidden" name="name" value="<%= name %>">
+    <input type="submit" value="Get Another Joke">
+  </form>
+<% } %>
+  </div>
+</body>
+</html>
